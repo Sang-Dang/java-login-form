@@ -1,0 +1,12 @@
+DBUtil\LocalDBConnection.class
+util\AttributeBlankException.class
+controller\SignupServlet.class
+DBUtil\MainDBConnection.class
+controller\LoginServlet.class
+DBUtil\AzureDBConnection.class
+util\AttributeRegexException.class
+dao\UserDAO.class
+util\ModelException.class
+service\UserService.class
+model\User.class
+util\AttributeLengthException.class
