@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <section class="image">
+            <div class="header">
+                <img src="./img/mobile/header-background.jpg" alt="">
+                <div class="headerhover">
+                    <img src="./img/skillcetera-logo.png" alt="">
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="login active">
+                    <h1>Log in</h1>
+                    <p>to a Skillcetera Account</p>
+                </button>
+                <button class="signup">
+                    <h1>Sign up</h1>
+                    <p>create a Skillcetera Account</p>
+                </button>
+            </nav>
+        </section>
+        <section class="content active" id="login">
+            <form action="LoginServlet" method="POST" onsubmit="return validateInputs()" id="login-form">
+                <div class="input-box">
+                    <div class="input-card">
+                        <input type="text" name="l-email" id="l-email" placeholder="Your Email address"
+                            class="input nonblank validemail">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div class="errormsg"></div>
+                    </div>
+                    <div class="input-card">
+                        <input type="password" name="l-password" id="l-password" placeholder="Your Password"
+                            class="input nonblank">
+                        <i class="fa-solid fa-lock"></i>
+                        <div class="errormsg"></div>
+                    </div>
+                    <div class="function-box">
+                        <div class="remember">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <div class="forgot">
+                            <a class="flyouttoggle" onclick="toggleFlyout(document.querySelector('#forgot-password'), true);">Forgot your password?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-submit">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="createaccount">
+                    Haven't joined us? <a onclick="switchTabs(navButtons[1]);">Create an account!</a>
+                </div>
+            </form>
+        </section>
+        <section class="content" id="signup">
+            <form action="SignupServlet" method="POST" onsubmit="return validateInputs();" id="signup-form">
+                <div class="input-box">
+                    <div class="input-card">
+                        <input type="text" name="s-name" id="s-name" placeholder="Full name" class="input nonblank">
+                        <i class="fa-solid fa-pen"></i>
+                        <div class="errormsg"></div>
+                    </div>
+                    <div class="input-card">
+                        <input type="text" name="s-studentid" id="s-studentid" placeholder="Student ID"
+                            class="input nonblank validstudentid">
+                        <i class="fa-solid fa-pen"></i>
+                        <div class="errormsg"></div>
+                    </div>
+                    <div class="input-card">
+                        <input type="text" name="s-email" id="s-email" placeholder="Email address"
+                            class="input nonblank validemail">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div class="errormsg"></div>
+                    </div>
+                    <div class="input-card">
+                        <input type="password" name="s-password" id="s-password" placeholder="Password"
+                            class="input nonblank validpassword similarpassword">
+                        <i class="fa-solid fa-lock"></i>
+                        <div class="errormsg"></div>
+                    </div>
+                    <div class="input-card">
+                        <input type="password" name="s-passwordconfirm" id="s-passwordconfirm"
+                            placeholder="Confirm password" class="input nonblank similarpassword">
+                        <i class="fa-solid fa-lock"></i>
+                        <div class="errormsg"></div>
+                    </div>
+                    <!-- <div class="function-box">
+                        <div class="terms">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">I agree with the <a href="#">terms and services</a> of
+                                Skillcetera</label>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="input-submit">
+                    <input type="submit" value="Sign up">
+                </div>
+            </form>
+        </section>
+    </div>
+    <section class="flyout" id="forgot-password">
+        <div class="content">
+            <div class="closebutton flyouttoggle" onclick="toggleFlyout(document.querySelector('#forgot-password'),false);">
+                <i class="far fa-window-close flyout-close-button"></i>
+            </div>
+            <img src="./img/Forgot password-amico.svg" alt="Forgot Password">
+            <h1>Forgot Password?</h1>
+            <p>Enter your Email address to retrieve your Password.</p>
+            <form action="ForgotPasswordServlet" method="POST" onsubmit="return validateFlyoutInputs();">
+                <div class="input-card">
+                    <input type="text" name="fp-email" id="fp-email" placeholder="Email"
+                        class="input validemail">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="errormsg"></div>
+                </div>
+                <div class="input-submit">
+                    <input type="submit" value="Reset Password">
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
