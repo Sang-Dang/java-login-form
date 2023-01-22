@@ -7,4 +7,11 @@
                 <goal>tomcat:deploy</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-Deploy Main</actionName>
+            <displayName>Deploy Main</displayName>
+            <goals>
+                <goal>deploy:deploy</goal>
+            </goals>
+        </action>
     </actions>
