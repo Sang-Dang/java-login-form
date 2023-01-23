@@ -13,7 +13,7 @@ class AzureDBConnection {
     private final static String instanceName = "javaloginserver.database.windows.net";
     private final static String port = "1433";
     private final static String user = "sangdang";
-    private final static String password = "JavaLoginServer1";
+    private final static String password = "advancedLogin123";
     private final static String databaseName = "JavaLogin";
     private final static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     
@@ -30,7 +30,7 @@ class AzureDBConnection {
      */
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName(driver);
-        return DriverManager.getConnection("jdbc:sqlserver://javaloginserver.database.windows.net:1433;database=JavaLogin;user=sangdang;password=JavaLoginServer1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        return DriverManager.getConnection("jdbc:sqlserver://advancedlogin.database.windows.net:1433;database=JavaLogin;user=sangdang;password=JavaLoginServer1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 //        return DriverManager.getConnection(createURL());
     }
 }
